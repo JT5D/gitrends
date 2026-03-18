@@ -1,0 +1,26 @@
+{
+	"name": "gitrends",
+	"private": true,
+	"version": "0.1.0",
+	"description": "GitHub trending intelligence platform \u2014 crawler, dashboard, AI agents",
+	"type": "module",
+	"engines": {
+		"node": ">=24.0.0",
+		"pnpm": ">=10.0.0"
+	},
+	"scripts": {
+		"dev": "node --experimental-strip-types tools/dev.ts",
+		"build": "pnpm -r build",
+		"test": "pnpm -r test",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"export": "node --experimental-strip-types tools/export.ts"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.0",
+		"typescript": "^5.7.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": ["@biomejs/biome", "esbuild", "puppeteer"]
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"rootDir": "src",
+		"outDir": "dist",
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"lib": ["ES2024", "DOM", "DOM.Iterable"],
+		"verbatimModuleSyntax": false
+	},
+	"include": ["src"]
+}

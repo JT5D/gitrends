@@ -1,0 +1,13 @@
+export { BaseAgent } from "./agents/base-agent.ts";
+export { ProfileLearner } from "./agents/profile-learner.ts";
+export { RepoRecommender } from "./agents/repo-recommender.ts";
+export { AutoFixer } from "./agents/auto-fixer.ts";
+export { DashOptimizer } from "./agents/dash-optimizer.ts";
+export { ToolSuggester } from "./agents/tool-suggester.ts";
+export { LearningLoop } from "./orchestrator/learning-loop.ts";
+export { TaskQueue } from "./orchestrator/task-queue.ts";
+export { VectorStore, tagsToVector, buildVocabulary } from "./knowledge/vector-store.ts";
+export { createSwarmMcpServer } from "./mcp.ts";
+export { ExperimentEngine } from "./experiment/experiment-engine.ts";
+export { PreferenceStore } from "./experiment/preference-store.ts";
+export { VoteManager } from "./experiment/vote-manager.ts";

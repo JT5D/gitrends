@@ -1,0 +1,22 @@
+{
+	"name": "@gitrends/swarm",
+	"version": "0.1.0",
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"scripts": {
+		"dev": "node --experimental-strip-types src/server.ts",
+		"test": "vitest run"
+	},
+	"dependencies": {
+		"@gitrends/core": "workspace:*",
+		"@modelcontextprotocol/sdk": "^1.12.0",
+		"@hono/node-server": "^1.13.0",
+		"hono": "^4.7.0",
+		"zod": "^3.24.0"
+	},
+	"devDependencies": {
+		"vitest": "^3.0.0"
+	}
+}
