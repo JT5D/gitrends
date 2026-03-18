@@ -40,7 +40,7 @@ export function repairJson(raw: string): RepairResult {
 	// Stage 4: Extract JSON from text
 	const jsonMatch = cleaned.match(/(\{[\s\S]*\}|\[[\s\S]*\])/);
 	if (jsonMatch) {
-		let extracted = jsonMatch[1]!;
+		let extracted = jsonMatch[1] ?? "";
 		extracted = extracted.replace(/,\s*([}\]])/g, "$1");
 		const s4 = tryParse(extracted);
 		if (s4 !== undefined) return { data: s4, repaired: true, stage: 4, error: null };

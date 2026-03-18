@@ -68,7 +68,7 @@ export function TrendingChart({ repos, mode = "bar" }: TrendingChartProps) {
 			chart.setOption(option);
 
 			const resizeObserver = new ResizeObserver(() => chart.resize());
-			resizeObserver.observe(chartRef.current!);
+			if (chartRef.current) resizeObserver.observe(chartRef.current);
 
 			return () => {
 				resizeObserver.disconnect();

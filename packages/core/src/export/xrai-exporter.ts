@@ -124,8 +124,9 @@ function buildRelationships(repos: TrendingRepo[]): XraiRelationship[] {
 	// SIMILAR_TO (shared language)
 	for (let i = 0; i < repos.length; i++) {
 		for (let j = i + 1; j < repos.length; j++) {
-			const a = repos[i]!;
-			const b = repos[j]!;
+			const a = repos[i];
+			const b = repos[j];
+			if (!a || !b) continue;
 			if (a.language && a.language === b.language) {
 				const sharedTopics = a.topics.filter((t) => b.topics.includes(t));
 				const weight = 0.3 + sharedTopics.length * 0.15;

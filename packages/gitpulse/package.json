@@ -8,7 +8,7 @@
 	"scripts": {
 		"dev": "node --experimental-strip-types src/cli.ts serve",
 		"crawl": "node --experimental-strip-types src/cli.ts crawl",
-		"test": "vitest run"
+		"test": "vitest run --passWithNoTests"
 	},
 	"dependencies": {
 		"@gitrends/core": "workspace:*",

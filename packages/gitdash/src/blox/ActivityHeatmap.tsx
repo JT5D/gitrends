@@ -27,7 +27,8 @@ export function ActivityHeatmap({ repos }: ActivityHeatmapProps) {
 
 			const data: [number, number, number][] = [];
 			for (let li = 0; li < top.length; li++) {
-				const lang = top[li]!;
+				const lang = top[li];
+				if (!lang) continue;
 				const langRepos = repos.filter((r) => r.language === lang);
 				const totalStars = langRepos.reduce((s, r) => s + r.starsToday, 0);
 				const totalRepos = langRepos.length;
@@ -68,7 +69,7 @@ export function ActivityHeatmap({ repos }: ActivityHeatmapProps) {
 			});
 
 			const obs = new ResizeObserver(() => chart.resize());
-			obs.observe(chartRef.current!);
+			if (chartRef.current) obs.observe(chartRef.current);
 
 			return () => {
 				obs.disconnect();

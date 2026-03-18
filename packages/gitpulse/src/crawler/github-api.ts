@@ -68,7 +68,7 @@ function periodToDateRange(period: TrendingPeriod): string {
 	const now = new Date();
 	const days = period === "daily" ? 1 : period === "weekly" ? 7 : 30;
 	const past = new Date(now.getTime() - days * 86400000);
-	return past.toISOString().split("T")[0]!;
+	return past.toISOString().split("T")[0] ?? "";
 }
 
 interface GitHubSearchItem {

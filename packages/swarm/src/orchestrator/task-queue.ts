@@ -28,7 +28,8 @@ export class TaskQueue {
 			: this.queue.findIndex((t) => t.status === "pending");
 		if (idx === -1) return null;
 
-		const task = this.queue[idx]!;
+		const task = this.queue[idx];
+		if (!task) return null;
 		task.status = "running";
 		task.startedAt = new Date().toISOString();
 		this.running.set(task.id, task);

@@ -9,15 +9,18 @@ export interface CrawlOptions {
 	rateLimiter: RateLimiter;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: dynamic import of puppeteer-extra has no shipped types
 let browserInstance: any = null;
 
+// biome-ignore lint/suspicious/noExplicitAny: puppeteer-extra returns untyped Browser
 async function getBrowser(): Promise<any> {
 	if (browserInstance) return browserInstance;
 	try {
 		const puppeteerExtra = await import("puppeteer-extra");
 		const stealthPlugin = await import("puppeteer-extra-plugin-stealth");
+		// biome-ignore lint/suspicious/noExplicitAny: puppeteer-extra default export is untyped
 		const puppeteer = (puppeteerExtra as any).default;
+		// biome-ignore lint/suspicious/noExplicitAny: stealth plugin default export is untyped
 		puppeteer.use((stealthPlugin as any).default());
 		browserInstance = await puppeteer.launch({
 			headless: true,

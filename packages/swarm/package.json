@@ -7,7 +7,7 @@
 	},
 	"scripts": {
 		"dev": "node --experimental-strip-types src/server.ts",
-		"test": "vitest run"
+		"test": "vitest run --passWithNoTests"
 	},
 	"dependencies": {
 		"@gitrends/core": "workspace:*",

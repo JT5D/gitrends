@@ -49,7 +49,7 @@ export class LogReader<T = unknown> {
 	/** Read new entries since last position */
 	async readNew(): Promise<LogEntry<T>[]> {
 		const entries: LogEntry<T>[] = [];
-		let fh;
+		let fh: import("node:fs/promises").FileHandle | undefined;
 		try {
 			fh = await open(this.filePath, "r");
 			const s = await fh.stat();

@@ -59,7 +59,7 @@ Return JSON array: [{ "repoFullName": "...", "score": 0-1, "reasons": ["..."] }]
 
 			// Language match
 			if (repo.language && profile.interests.languages[repo.language]) {
-				const langScore = profile.interests.languages[repo.language]!;
+				const langScore = profile.interests.languages[repo.language] ?? 0;
 				score += langScore * w.language;
 				reasons.push(`Language match: ${repo.language} (${(langScore * 100).toFixed(0)}%)`);
 			}

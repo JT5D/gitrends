@@ -78,7 +78,7 @@ export abstract class BaseAgent<TInput = unknown, TOutput = unknown> {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
-						"x-api-key": this.config.llmApiKey!,
+						"x-api-key": this.config.llmApiKey ?? "",
 						"anthropic-version": "2023-06-01",
 					},
 					body: JSON.stringify({
