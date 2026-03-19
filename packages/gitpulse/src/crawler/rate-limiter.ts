@@ -29,7 +29,7 @@ export class RateLimiter {
 		const waitMs = ((1 - this.tokens) / this.refillRate) * 1000;
 		await new Promise((r) => setTimeout(r, waitMs));
 		this.refill();
-		this.tokens--;
+		if (this.tokens >= 1) this.tokens--;
 	}
 
 	available(): number {

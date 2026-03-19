@@ -101,7 +101,7 @@ function buildRelationships(repos: TrendingRepo[]): XraiRelationship[] {
 		}
 
 		// TAGGED_WITH
-		for (const topic of repo.topics) {
+		for (const topic of repo.topics ?? []) {
 			rels.push({
 				type: "TAGGED_WITH",
 				source: repo.fullName,
